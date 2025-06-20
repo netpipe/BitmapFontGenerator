@@ -44,7 +44,7 @@ MainWindow::MainWindow(QWidget *parent) :
     auto font = QRawFont::fromFont(QFont("Arial Black"));
     font.setPixelSize(60);
 
-    fontGenerator = FontGenerator(font, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+-,./()!? ");
+    fontGenerator = FontGenerator(font, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+-,./()!?");
     fontGenerator.setPageSize(256, 256);
     fontGenerator.setBackgroundColor(Qt::transparent);
     fontGenerator.setPackingMethod(rbp::FreeRectChoiceHeuristic::BestAreaFit);
@@ -76,6 +76,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionNext, &QAction::triggered, ui->pagePreview, &PagePreview::nextPage);
     connect(ui->actionPrevious, &QAction::triggered, ui->pagePreview, &PagePreview::prevPage);
 
+    regenerateFont();
     regenerateFont();
 }
 
